@@ -99,16 +99,24 @@ public class HospitalTest extends TestCase {
         testDoctor.assignPatient(new Patient());
         try {
             testDoctor.assignPatient(new Patient());
-            assertTrue(false);
+            DoctorFullException.DoctorLimit(testDoctor);
         } catch (DoctorFullException dfe) {
-            assertTrue(true);
+            testDoctor.removePatient();
         }
         assertTrue(testDoctor.getPatients().size() == 3);
     }
 
     // Add 3 Doctors and 8 Patients to the testHospital for this test
     public void test8Patients() throws Exception {
-
+    	for(int i = 0; i < 8; i++) {
+    		Patient p = new Patient();
+    		testHospital.addPatient(p);
+    	}
+    	for(int i = 0; i < 3; i++) {
+    		Doctor d = new GeneralPractitioner();
+    		testHospital.addDoctor(d);
+    	}
+    	
         testHospital.assignPatientsToDoctors();
 
         List<Doctor> testDoctors = testHospital.getDoctors();

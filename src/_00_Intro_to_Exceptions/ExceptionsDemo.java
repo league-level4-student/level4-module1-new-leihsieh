@@ -1,5 +1,7 @@
 package _00_Intro_to_Exceptions;
 
+import javax.swing.JOptionPane;
+
 public class ExceptionsDemo {
 
     /*
@@ -16,7 +18,7 @@ public class ExceptionsDemo {
     public static void testFiveOrGreater(int x) throws Exception {
         if (x < 5) {
             // This is where the Exception is actually thrown.
-            throw new Exception();
+            throw new Exception("this is an error");
         }
     }
 
@@ -39,7 +41,12 @@ public class ExceptionsDemo {
     public static void main(String[] args) {
 
         // 1. Create a try/catch block (Hint: type "try" and ctrl + space).
-
+    	try {
+			testFiveOrGreater(2);
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
         /*
          * 2. Call the testFiveOrGreater method with a value less than 5 inside
          * the try block.
@@ -52,7 +59,7 @@ public class ExceptionsDemo {
          */
 
         // 4. Run the program. Did the stack trace print out?
-
+    	
     }
 
     /*

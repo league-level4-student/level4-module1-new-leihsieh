@@ -19,7 +19,7 @@ package _02_Intro_To_Abstract_Classes_and_Interfaces;
 public abstract class AbstractClassDemo {
 
     // An abstract class can contain member variables.
-    int num;
+    int num = 5;
 
     /*
      * This is an example of an abstract method. Notice that the abstract
@@ -31,6 +31,9 @@ public abstract class AbstractClassDemo {
      * keyword.
      */
     public abstract void abstractDemo();
+    public int getNum() {
+    	return num;
+    }
 
     /*
      * An abstract method without a void return type will only require curly
